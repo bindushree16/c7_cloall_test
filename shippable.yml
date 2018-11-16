@@ -1,0 +1,16 @@
+language: clojure
+
+lein:
+ - 1.9.0
+ 
+ 
+build:
+  pre_ci_boot:
+    image_name: drydock/c7cloall
+    image_tag: master
+    pull: true
+    
+  ci:
+         - java --version
+         - echo "(print *clojure-version*)" > clojure.main  
+         - clj clojure.main
